@@ -1,3 +1,4 @@
+import 'package:evently/Home/home_screen.dart';
 import 'package:evently/app_theam.dart';
 import 'package:evently/auth/register_screen.dart';
 import 'package:flutter/material.dart';
@@ -84,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
   void loginOnpressed(){
 if(formkey.currentState!.validate()){
-
+Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
 }
   }
 

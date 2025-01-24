@@ -1,6 +1,7 @@
 import 'package:evently/app_theam.dart';
 import 'package:evently/auth/login_Screen.dart';
 import 'package:flutter/material.dart';
+import '../Home/home_screen.dart';
 import '../component/deafult_textButtom.dart';
 import '../component/deafult_textformfield.dart';
 import '../component/default_elevatedButtom.dart';
@@ -90,7 +91,7 @@ Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
   }
   void registerOnpressed(){
     if(formkey.currentState!.validate()){
-
+      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
     }
   }
 

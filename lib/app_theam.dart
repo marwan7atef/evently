@@ -10,6 +10,26 @@ class AppThem{
   static const Color white=Color(0xffFFFFFF);
 
   static ThemeData lightMode=ThemeData(
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: primary,
+    foregroundColor: white,
+    shape: CircleBorder(
+      side: BorderSide(color: white,width: 5)
+
+
+    )
+
+  )
+  ,
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: primary,
+      selectedItemColor: white,
+      unselectedItemColor: white,
+      type: BottomNavigationBarType.fixed
+
+
+
+    ),
 primaryColor: primary,
    appBarTheme: AppBarTheme(
      backgroundColor:light,
@@ -90,6 +110,14 @@ centerTitle: true ,
 
 
       ),
+      titleLarge: TextStyle(
+
+          color: white,
+          fontSize: 24,
+          fontWeight:FontWeight.bold
+
+      )
+      ,
       bodySmall: TextStyle(
           color: black,
           fontSize: 12,
