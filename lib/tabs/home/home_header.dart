@@ -29,7 +29,7 @@ int currentIndex=0;
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Welcome Back ✨",style: textStyle.labelLarge!.copyWith(color: AppThem.white),),
+            Text("Welcome Back ✨",style: textStyle.labelLarge?.copyWith(color: AppThem.white),),
             Text("Marwan Atef",style: textStyle.titleLarge,),
             SizedBox(height: 16,),
             DefaultTabController(

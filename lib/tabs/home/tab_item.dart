@@ -23,7 +23,7 @@ TabItem({required this.isSelected,required this.catgoryItem});
           Icon(catgoryItem.icon,color:isSelected?AppThem.primary:AppThem.white,),
 
           SizedBox(width: 8,),
-          Text(catgoryItem.catName,style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: isSelected?AppThem.primary:AppThem.white,),),
+          Text(catgoryItem.catName,style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: isSelected?AppThem.primary:AppThem.white,),),
 
 
 
