@@ -46,10 +46,11 @@ int currentIndex=0;
                 ,
                 tabAlignment: TabAlignment.start
                 ,
+                    labelPadding: EdgeInsets.all(16),
                 isScrollable: true,
                 dividerColor: Colors.transparent,
                 indicatorColor: Colors.transparent
-                ,tabs: CatgoryItem.catgorys.map((catgoryTiem)=>TabItem(catgoryItem: catgoryTiem,isSelected:currentIndex==CatgoryItem.catgorys.indexOf(catgoryTiem),)).toList()))
+                ,tabs: CatgoryItem.catgorys.map((catgoryTiem)=>TabItem(catgoryItem: catgoryTiem,selectedBack: AppThem.white,selectedFor: AppThem.primary,unSelectedborder: AppThem.white,unSelectedFor: AppThem.white,isSelected:currentIndex==CatgoryItem.catgorys.indexOf(catgoryTiem),)).toList()))
 
 
 

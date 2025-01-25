@@ -36,9 +36,9 @@ primaryColor: primary,
      foregroundColor: primary,
 centerTitle: true ,
        titleTextStyle: TextStyle(
-       fontWeight:FontWeight.w500 ,
-     fontSize: 16,
-     color: black,
+       fontWeight:FontWeight.bold ,
+     fontSize: 22,
+     color: primary,
 
 
    )

@@ -1,5 +1,6 @@
 import 'package:evently/app_theam.dart';
 import 'package:evently/component/nav_icon.dart';
+import 'package:evently/creat_event.dart';
 import 'package:evently/tabs/home/home_tap.dart';
 import 'package:evently/tabs/love/love_tap.dart';
 import 'package:evently/tabs/map/map_tap.dart';
@@ -51,7 +52,11 @@ List<Widget> taps=[
 
         ]),
       ),
-      floatingActionButton:FloatingActionButton(onPressed: (){},child: Icon(Icons.add),),
+      floatingActionButton:FloatingActionButton(onPressed: (){
+        Navigator.of(context).pushNamed(CreatEvent.routeName);
+
+
+      },child: Icon(Icons.add),),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
 

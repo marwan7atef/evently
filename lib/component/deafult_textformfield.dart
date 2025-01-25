@@ -7,7 +7,8 @@ class DeafultTextformfield extends StatefulWidget {
   TextEditingController? controller;
   String? Function(String?)? validator;
   bool ispassword;
-DeafultTextformfield({required this.hintText,this.perfixicon,this.controller,this.validator,this.ispassword=false});
+  int numOfLines;
+DeafultTextformfield({required this.hintText,this.perfixicon,this.controller,this.validator,this.ispassword=false,this.numOfLines=1});
 
   @override
   State<DeafultTextformfield> createState() => _DeafultTextformfieldState();
@@ -23,7 +24,7 @@ late bool isobscure= widget.ispassword;
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
         hintText: widget.hintText,
-        prefixIcon:SvgPicture.asset("assets/icons/${widget.perfixicon}.svg",height: 24,width: 24,fit: BoxFit.scaleDown,),
+        prefixIcon:widget.perfixicon==null?null:SvgPicture.asset("assets/icons/${widget.perfixicon}.svg",height: 24,width: 24,fit: BoxFit.scaleDown,),
         suffixIcon:widget.ispassword? IconButton(onPressed: (){
           isobscure=! isobscure;
           setState(() {
@@ -36,6 +37,7 @@ late bool isobscure= widget.ispassword;
 
       ),
 obscureText: isobscure,
+      maxLines: widget.numOfLines,
 
 
 
