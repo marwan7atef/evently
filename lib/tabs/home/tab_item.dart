@@ -11,7 +11,7 @@ TabItem({required this.isSelected,required this.catgoryItem});
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.symmetric(horizontal: 16,vertical: 8),
       decoration: BoxDecoration(
       color: isSelected?AppThem.white:AppThem.primary,
 

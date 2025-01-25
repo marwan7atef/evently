@@ -39,7 +39,8 @@ class EventItem extends StatelessWidget {
 
             ),
             Positioned(
-              width: sizeScreen.width*.92,
+              width: sizeScreen.width-32,
+              right: 4,
               bottom: 8
               ,
               child: Container(
