@@ -4,13 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TabItem extends StatelessWidget {
-CatgoryItem catgoryItem;
+String label;
+IconData icon;
 bool isSelected;
 Color selectedBack;
 Color selectedFor;
 Color unSelectedFor;
 Color unSelectedborder;
-TabItem({required this.isSelected,required this.catgoryItem,required this.selectedBack,required this.selectedFor,required this.unSelectedborder,required this.unSelectedFor});
+TabItem({required this.isSelected,required this.icon,required this.label,required this.selectedBack,required this.selectedFor,required this.unSelectedborder,required this.unSelectedFor});
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +25,10 @@ TabItem({required this.isSelected,required this.catgoryItem,required this.select
       ),
       child: Row(
         children: [
-          Icon(catgoryItem.icon,color: isSelected?selectedFor:unSelectedFor,),
+          Icon(icon,color: isSelected?selectedFor:unSelectedFor,),
 
           SizedBox(width: 8,),
-          Text(catgoryItem.catName,style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: isSelected?selectedFor:unSelectedFor,),),
+          Text(label,style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: isSelected?selectedFor:unSelectedFor,),),
 
 
 

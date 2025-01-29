@@ -38,6 +38,7 @@ List<Widget> taps=[
         shape: CircularNotchedRectangle(),
 
         child: BottomNavigationBar(elevation: 0,currentIndex:currentIndex,onTap: (value) {
+          if(value==currentIndex)return;
           currentIndex=value;
           setState(() {
 

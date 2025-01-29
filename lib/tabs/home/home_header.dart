@@ -1,8 +1,10 @@
 import 'package:evently/app_theam.dart';
 import 'package:evently/models/catgory_item.dart';
+import 'package:evently/providers/events_provider.dart';
 import 'package:evently/tabs/home/tab_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeHeader extends StatefulWidget {
   @override
@@ -14,6 +16,7 @@ int currentIndex=0;
 
   @override
   Widget build(BuildContext context) {
+   EventsProvider eventProvider=Provider.of<EventsProvider>(context);
     TextTheme textStyle=Theme.of(context).textTheme;
     return Container(
       width: double.infinity,
@@ -33,15 +36,17 @@ int currentIndex=0;
             Text("Marwan Atef",style: textStyle.titleLarge,),
             SizedBox(height: 16,),
             DefaultTabController(
-                length: CatgoryItem.catgorys.length
+                length: CatgoryItem.catgorys.length+1
                 ,
 
                 child: TabBar(
                 onTap: (value) {
-                  currentIndex=value;
-                  setState(() {
+                  if(value==currentIndex)return;
 
-                  });
+                  currentIndex=value;
+                  eventProvider.changeCatgory(currentIndex==0?null:CatgoryItem.catgorys[currentIndex-1]);
+
+
                 }
                 ,
                 tabAlignment: TabAlignment.start
@@ -50,7 +55,9 @@ int currentIndex=0;
                 isScrollable: true,
                 dividerColor: Colors.transparent,
                 indicatorColor: Colors.transparent
-                ,tabs: CatgoryItem.catgorys.map((catgoryTiem)=>TabItem(catgoryItem: catgoryTiem,selectedBack: AppThem.white,selectedFor: AppThem.primary,unSelectedborder: AppThem.white,unSelectedFor: AppThem.white,isSelected:currentIndex==CatgoryItem.catgorys.indexOf(catgoryTiem),)).toList()))
+                ,tabs: [
+                  TabItem(icon:Icons.all_inbox_outlined,label:"All",selectedBack: AppThem.white,selectedFor: AppThem.primary,unSelectedborder: AppThem.white,unSelectedFor: AppThem.white,isSelected:currentIndex==0,),
+                  ...CatgoryItem.catgorys.map((catgoryTiem)=>TabItem(icon: catgoryTiem.icon,label: catgoryTiem.catName,selectedBack: AppThem.white,selectedFor: AppThem.primary,unSelectedborder: AppThem.white,unSelectedFor: AppThem.white,isSelected:currentIndex==CatgoryItem.catgorys.indexOf(catgoryTiem)+1,))]),)
 
 
 

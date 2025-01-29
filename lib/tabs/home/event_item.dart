@@ -1,9 +1,13 @@
 import 'package:evently/app_theam.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+import '../../models/event.dart';
 
 class EventItem extends StatelessWidget {
-
+Event event;
+EventItem({required this.event});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +18,7 @@ class EventItem extends StatelessWidget {
         
         child: Stack(
           children: [
-            Image.asset("assets/images/sport.png",
+            Image.asset("assets/images/${event.catgoryItem.imageOfCat}.png",
             width: double.infinity,
               height: sizeScreen.height*.25,
               fit: BoxFit.fill,
@@ -29,9 +33,9 @@ class EventItem extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Text("21",style: textStyle.labelMedium?.copyWith(color: AppThem.primary,fontWeight: FontWeight.bold),),
+                  Text("${event.date.day}",style: textStyle.labelMedium?.copyWith(color: AppThem.primary,fontWeight: FontWeight.bold),),
                   SizedBox(height: 2,),
-                  Text("Nov",style: textStyle.labelLarge?.copyWith(color: AppThem.primary,fontWeight: FontWeight.bold),)
+                  Text(DateFormat("MMM").format(event.date),style: textStyle.labelLarge?.copyWith(color: AppThem.primary,fontWeight: FontWeight.bold),)
                   
                 ],
 
@@ -54,7 +58,7 @@ class EventItem extends StatelessWidget {
                 child: Row(
                   children: [
 
-                    Expanded(child: Text("This is a Birthday Party ",style: textStyle.labelLarge,)),
+                    Expanded(child: Text(event.title,style: textStyle.labelLarge,)),
 
                     IconButton(onPressed: (){}, icon: Icon(Icons.favorite_border))
 
