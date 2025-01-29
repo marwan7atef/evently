@@ -15,8 +15,8 @@ class CatgoryItem{
     CatgoryItem(id: "5", catName: "Eating", icon: Icons.fastfood, imageOfCat: "Eating"),
     CatgoryItem(id: "6", catName: "Holiday", icon: Icons.festival_outlined, imageOfCat: "Holiday"),
     CatgoryItem(id: "7", catName: "Exhibition", icon: Icons.format_paint, imageOfCat: "Exhibition"),
-    CatgoryItem(id: "8", catName: "Work Shop", icon: Icons.work_history_outlined, imageOfCat: "Work Shop"),
-    CatgoryItem(id: "9", catName: "Book Club", icon: Icons.book_rounded, imageOfCat: "Book Club"),
+    CatgoryItem(id: "8", catName: "Work Shop", icon: Icons.work_history_outlined, imageOfCat: "WorkShop"),
+    CatgoryItem(id: "9", catName: "Book Club", icon: Icons.book_rounded, imageOfCat: "BookClub"),
 
 
 
