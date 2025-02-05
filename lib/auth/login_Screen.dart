@@ -1,7 +1,10 @@
 import 'package:evently/Home/home_screen.dart';
 import 'package:evently/app_theam.dart';
 import 'package:evently/auth/register_screen.dart';
+import 'package:evently/firebase_service.dart';
+import 'package:evently/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../component/deafult_textButtom.dart';
 import '../component/deafult_textformfield.dart';
 import '../component/default_elevatedButtom.dart';
@@ -85,7 +88,14 @@ class _LoginScreenState extends State<LoginScreen> {
   }
   void loginOnpressed(){
 if(formkey.currentState!.validate()){
-Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+  FirebaseService.login(email: emailController.text.trim(), password: PasswordController.text.trim()).then((user) {
+    Provider.of<UserProvider>(context,listen: false).updateUser(user);
+    Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+  },).catchError((bug){
+    print(bug);
+
+  });
+
 }
   }
 

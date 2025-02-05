@@ -1,6 +1,9 @@
 import 'package:evently/app_theam.dart';
 import 'package:evently/auth/login_Screen.dart';
+import 'package:evently/firebase_service.dart';
+import 'package:evently/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../Home/home_screen.dart';
 import '../component/deafult_textButtom.dart';
 import '../component/deafult_textformfield.dart';
@@ -59,7 +62,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     Text("Already Have Account ?",style:Theme.of(context).textTheme.bodyLarge?.copyWith(color: AppThem.black),),
                     SizedBox(width:5 ,),
                     DeafultTextbuttom(label: "Login",onpress:(){
-Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
+            Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
 
                     } ,),
 
@@ -91,7 +94,15 @@ Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
   }
   void registerOnpressed(){
     if(formkey.currentState!.validate()){
-      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+      FirebaseService.register(email: emailController.text.trim(), password:PasswordController.text.trim() , name: nameController.text.trim()).then((user) {
+        Provider.of<UserProvider>(context,listen: false).updateUser(user);
+        Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+
+      },).catchError((error){
+        print(error);
+
+      });
+
     }
   }
 

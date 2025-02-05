@@ -1,6 +1,7 @@
 import 'package:evently/app_theam.dart';
 import 'package:evently/models/catgory_item.dart';
 import 'package:evently/providers/events_provider.dart';
+import 'package:evently/providers/user_provider.dart';
 import 'package:evently/tabs/home/tab_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ int currentIndex=0;
       crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("Welcome Back ✨",style: textStyle.labelLarge?.copyWith(color: AppThem.white),),
-            Text("Marwan Atef",style: textStyle.titleLarge,),
+            Text(Provider.of<UserProvider>(context,listen: false).user!.name,style: textStyle.titleLarge,),
             SizedBox(height: 16,),
             DefaultTabController(
                 length: CatgoryItem.catgorys.length+1

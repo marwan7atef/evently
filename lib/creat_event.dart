@@ -2,6 +2,7 @@ import 'package:evently/app_theam.dart';
 import 'package:evently/component/default_elevatedButtom.dart';
 import 'package:evently/models/event.dart';
 import 'package:evently/providers/events_provider.dart';
+import 'package:evently/providers/user_provider.dart';
 import 'package:evently/tabs/home/tab_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -186,7 +187,7 @@ void creatEvent(){
       selectedTimeOfDay!.minute
 
     );
-Event event=Event( title: titleController.text, description: descriptionController.text, catgoryItem: currentCatgory, date: dateTime);
+Event event=Event(userId: Provider.of<UserProvider>(context,listen:  false).user!.id,title: titleController.text, description: descriptionController.text, catgoryItem: currentCatgory, date: dateTime);
     FirebaseService.addEventToFirebase(event).then((value) {
       Provider.of<EventsProvider>(context,listen: false).getEvent();
       Navigator.of(context).pop();
